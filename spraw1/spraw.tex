@@ -39,12 +39,18 @@
 	
 	%wprowadzenie
 	
+	{\large\bfseries 1. Wprowadzenie/cel ćwiczeń\\}
+	
+	Celem zadania było przećwiczenie metody Karnough na przykładzie tablicy prawdy podanej przez prowadzącego. Następnie należało przeprowadzić dwie minimalizację korzystając jedynie z bramek NAND lub NOR dla każdej minimalizacji. Z uzyskanych finalnie wzorów stworzono schematy ideowe układów logicznych. Poprawność przeprowadzonych obliczeń należało zweryfikować w praktyce z wykorzystaniem zestawu do prototypowania prostych układów logicznych. 
 	
 	%tabela prawdy&Karnaugh
+	\vspace{0.8cm}
+	{\large\bfseries 2. Tabele i minimalizacje}
 	
 	\begin{table}[h]
-		\begin{minipage}{0.5\linewidth}
+		\begin{minipage}{.5\textwidth}
 			\caption{Tabela Prawdy}
+			\vspace{0.4cm}
 			\centering
 			\begin{tabular}{cccc|l}
 				a&b&c&d&y\\\hline
@@ -66,9 +72,9 @@
 				1&1&1&1&0\\
 			\end{tabular}
 		\end{minipage}%
-	
-		\begin{minipage}{.5\linewidth}
+		\begin{minipage}{.5\textwidth}
 			\caption{Tablica Karnaugh}
+			\vspace{0.4cm}
 			\centering
 			\begin{tabular}{c|c|c|c|c}
 				\backslashbox{ab}{cd}&00&01&11&10\\\hline
@@ -82,7 +88,8 @@
 
 	
 	%minimalizacja
-	Minimalizacja dla bramek NAND:
+	
+	{\bfseries Minimalizacja dla bramek NAND:}
 	\begin{displaymath}
 	y=\bar{a}b+a\bar{b}+b\bar{c}
 	=b\cdot(\bar{a}+\bar{c})+a\cdot\bar{b}
@@ -91,8 +98,8 @@
 	=\overline{\overline{b\cdot\overline{\overline{\bar{a}+\bar{c}}}}\cdot\overline{a\cdot\bar{b}}}
 	=\overline{\overline{b\cdot\overline{a\cdot c}}\cdot\overline{a\cdot\bar{b}}}
 	\end{displaymath}
-	\\
-	Minimalizacja dla bramek NOR:
+	
+	{\bfseries Minimalizacja dla bramek NOR:}
 	\begin{displaymath}
 	y=\bar{a}b+a\bar{b}+b\bar{c}
 	=b\cdot(\bar{a}+\bar{c})+a\cdot\bar{b}
@@ -101,10 +108,12 @@
 	\end{displaymath}
 	
 	%wzory
-	Użyte wzory:
+	
+	{\bfseries Użyte wzory:}
 	\begin{equation}
 	\overline{a\cdot b}=\bar{a}+\bar{b}
 	\end{equation}
+	\pagebreak
 	\begin{equation}
 	\overline{a+b}=\bar{a}\cdot\bar{b}
 	\end{equation}
@@ -113,21 +122,27 @@
 	\end{equation}
 	
 	%schemat ideowy układu
-	{\large\bfseries Schemat ideowy układu na bramkach NAND}
+	\vspace{0.5cm}
+	{\large\bfseries 3. Schematy}
+	
 	\vspace{0.5cm}
 	\begin{center}
 		\makebox[\textwidth]{\includegraphics[width=\paperwidth - 40mm]{schem/circuit.png}}
+		Schemat 1. Układ na bramkach NAND
 	\end{center}
 	
-	{\large\bfseries Schemat ideowy układu na bramkach NOR}
-	\vspace{0.5cm}
+	\vspace{1.0cm}
 	\begin{center}
 		\makebox[\textwidth]{\includegraphics[width=\paperwidth - 40mm]{schem/circuit2.png}}
+		Schemat 2. Układ na bramkach NOR
 	\end{center}
-	Wszystkie wejścia poprowadzone przez bramki NOR lub sygnał z wyjść 0 przełączników. 
-	
+	Wszystkie wejścia poprowadzone przez bramki NOR lub sygnał z wyjść 0 przełączników.\\ 
 	
 	%wnioski
 	
+	\vspace{0.5cm}
+	{\large\bfseries 4. Wnioski/podsumowanie\\}
+	
+	Podczas przeprowadzania praktycznej części ćwiczenia najważniejszą kwestią okazało się systematyczne zrealizowanie uprzednio stworzonego schematu, organizacja pracy oraz umiejętność debugowania układu. W celu sprawdzenie poprawności działania należało przeprowadzić testy dla wszystkich możliwych kombinacji wejść w tym przypadku $2^3 = 8$ (3 wejścia ponieważ stan d nie ma znaczenia dla końcowego wyniku)
 	
 \end{document}
