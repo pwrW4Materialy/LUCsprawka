@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper]{report}
 \usepackage{geometry}
+\usepackage{slashbox}
 \geometry{
 	a4paper,
 	total={170mm,257mm},
@@ -39,14 +40,77 @@
 	%wprowadzenie
 	
 	
-	%tabela prawdy
+	%tabela prawdy&Karnaugh
 	
+	\begin{table}[h]
+		\begin{minipage}{0.5\linewidth}
+			\caption{Tabela Prawdy}
+			\centering
+			\begin{tabular}{cccc|l}
+				a&b&c&d&y\\\hline
+				0&0&0&0&0\\
+				0&0&0&1&0\\
+				0&0&1&0&0\\
+				0&0&1&1&0\\\hline
+				0&1&0&0&1\\
+				0&1&0&1&1\\
+				0&1&1&0&1\\
+				0&1&1&1&1\\\hline
+				1&0&0&0&1\\
+				1&0&0&1&1\\
+				1&0&1&0&1\\
+				1&0&1&1&1\\\hline
+				1&1&0&0&1\\
+				1&1&0&1&1\\
+				1&1&1&0&0\\
+				1&1&1&1&0\\
+			\end{tabular}
+		\end{minipage}%
+	
+		\begin{minipage}{.5\linewidth}
+			\caption{Tablica Karnaugh}
+			\centering
+			\begin{tabular}{c|c|c|c|c}
+				\backslashbox{ab}{cd}&00&01&11&10\\\hline
+				       00&0 &0 & 0&0\\\hline
+					   01&1 &1 & 1&1\\\hline
+					   11&1 &1 & 0&0\\\hline
+					   10&1 &1 & 1&1\\
+			\end{tabular}
+		\end{minipage} 
+	\end{table}
+
 	
 	%minimalizacja
-	
+	Minimalizacja dla bramek NAND:
+	\begin{displaymath}
+	y=\bar{a}b+a\bar{b}+b\bar{c}
+	=b\cdot(\bar{a}+\bar{c})+a\cdot\bar{b}
+	=\overline{\overline{b\cdot(\bar{a}+\bar{c})+a\cdot\bar{b}}}
+	=\overline{\overline{b\cdot(\bar{a}+\bar{c})}\cdot\overline{a\cdot\bar{b}}}
+	=\overline{\overline{b\cdot\overline{\overline{\bar{a}+\bar{c}}}}\cdot\overline{a\cdot\bar{b}}}
+	=\overline{\overline{b\cdot\overline{a\cdot c}}\cdot\overline{a\cdot\bar{b}}}
+	\end{displaymath}
+	\\
+	Minimalizacja dla bramek NOR:
+	\begin{displaymath}
+	y=\bar{a}b+a\bar{b}+b\bar{c}
+	=b\cdot(\bar{a}+\bar{c})+a\cdot\bar{b}
+	=\overline{\overline{b\cdot(\bar{a}+\bar{c})}}+\overline{\overline{a\cdot\bar{b}}}
+	=\overline{\overline{\overline{\bar{b}+\overline{(\bar{a}+\bar{c})}}+\overline{\bar{a}+b}}}
+	\end{displaymath}
 	
 	%wzory
-	
+	Użyte wzory:
+	\begin{equation}
+	\overline{a\cdot b}=\bar{a}+\bar{b}
+	\end{equation}
+	\begin{equation}
+	\overline{a+b}=\bar{a}\cdot\bar{b}
+	\end{equation}
+	\begin{equation}
+	\bar{\bar{a}}=a
+	\end{equation}
 	
 	%schemat ideowy układu
 	{\large\bfseries Schemat ideowy układu na bramkach NAND}
