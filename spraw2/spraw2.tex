@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass[12pt,a4paper]{article}
 \usepackage{geometry}
 \usepackage{slashbox}
 \geometry{
@@ -36,43 +36,181 @@
 		
 		\restoregeometry
 	\end{titlepage}
-	
-	%wprowadzenie
-	
-	{\large\bfseries 1. Wprowadzenie/cel ćwiczeń\\}
-	
-	lorem ipsum
-	
-	%tabela prawdy&Karnaugh
-	\vspace{0.8cm}
-	{\large\bfseries 2. Tabele i minimalizacje}
-	
-	
-	%minimalizacja
-	
-	{\bfseries Minimalizacja dla bramek NAND:}
-	
-	
-	%wzory
-	
-	{\bfseries Użyte wzory:}
-	\begin{equation}
-	\overline{a\cdot b}=\bar{a}+\bar{b}
-	\end{equation}
-	\begin{equation}
-	\overline{a+b}=\bar{a}\cdot\bar{b}
-	\end{equation}
-	
-	%schemat ideowy układu
-	
-	\vspace{0.5cm}
-	{\large\bfseries 3. Schematy}
 
 	
-	%wnioski
+	\section{Wprowadzenie/cel ćwiczeń}
 	
-	\vspace{0.5cm}
-	{\large\bfseries 4. Wnioski/podsumowanie\\}
+		lorem ipsum
+	
+	\section{Transkoder naturalnego kodu binarnego na kod +3}
+		
+		\subsection{Tabela prawdy i tablice Karnaugh:}
+			
+			\begin{table}[h]
+				\begin{minipage}{.5\textwidth}
+					\caption{Tabela Prawdy}
+					\vspace{0.2cm}
+					\centering
+					\begin{tabular}{ccc|c|c|c|c}
+						a&b&c&y\textsubscript{3}&y\textsubscript{2}&y\textsubscript{1}&y\textsubscript{0}\\\hline
+						0&0&0&0&0&1&1\\
+						0&0&1&0&1&0&0\\
+						0&1&0&0&1&0&1\\
+						0&1&1&0&1&1&0\\\hline
+						1&0&0&0&1&1&1\\
+						1&0&1&1&0&0&0\\
+						1&1&0&1&0&0&1\\
+						1&1&1&1&0&1&0\\
+					\end{tabular}
+					\vspace{1cm}
+					\caption{Tablica Karnaugh dla y\textsubscript{3}}
+					\vspace{0.2cm}
+					\centering
+					\begin{tabular}{c|c|c|c|c}
+						\backslashbox{c}{ab}&00&01&11&10\\\hline
+						0&0&0&1&0\\\hline
+						1&0&0&1&1\\
+					\end{tabular}
+				\end{minipage}%
+				\begin{minipage}{.5\textwidth}
+					\caption{Tablica Karnaugh dla y\textsubscript{2}}
+					\vspace{0.2cm}
+					\centering
+					\begin{tabular}{c|c|c|c|c}
+						\backslashbox{c}{ab}&00&01&11&10\\\hline
+						0&0&1&0&1\\\hline
+						1&1&1&0&0\\
+					\end{tabular}
+					\vspace{0.4cm}
+				 	\caption{Tablica Karnaugh dla y\textsubscript{1}}
+				 	\vspace{0.2cm}
+				 	\centering
+				 	\begin{tabular}{c|c|c|c|c}
+				 		\backslashbox{c}{ab}&00&01&11&10\\\hline
+				 		0&1&0&0&1\\\hline
+				 		1&0&1&1&0\\
+				 	\end{tabular} 
+			 		\vspace{0.4cm}
+			 		\caption{Tablica Karnaugh dla y\textsubscript{0}}
+			 		\vspace{0.2cm}
+			 		\centering
+			 		\begin{tabular}{c|c|c|c|c}
+			 			\backslashbox{c}{ab}&00&01&11&10\\\hline
+			 			0&1&1&1&1\\\hline
+			 			1&0&0&0&0\\
+			 		\end{tabular} 
+				\end{minipage} 
+			\end{table}
+				
+		\subsection{Minimalizacje:}
+			
+			\begin{minipage}{.5\textwidth}
+				\begin{displaymath}
+				y_3 = ab + ac = \overline{\overline{ab}\cdot\overline{ac}}
+				\end{displaymath}
+				\begin{displaymath}
+				y_2 = a\bar{b}\bar{c} + \bar{a}b + \bar{a}c
+				= \overline{\overline{a\bar{b}\bar{c}}\cdot\overline{\bar{a}b}\cdot\overline{\bar{a}c}}
+				\end{displaymath}
+			\end{minipage}%
+			\begin{minipage}{.5\textwidth}
+				\begin{displaymath}
+				y_1 = bc + \bar{b}\bar{c}
+				= \overline{\overline{bc}\cdot\overline{\bar{b}\bar{c}}}
+				\end{displaymath}
+				\begin{displaymath}
+				y_0 = \bar{c}
+				\end{displaymath}
+			\end{minipage}
+			
+		\subsection{Użyte wzory:}
+			\begin{equation}
+			\overline{a\cdot b}=\bar{a}+\bar{b}
+			\end{equation}
+			\begin{equation}
+			\overline{a+b}=\bar{a}\cdot\bar{b}
+			\end{equation}
+			
+		\subsection{Schemat układu:}
+		
+		
+	\section{Subtraktor pełny 1 bitowy}
+		
+		\subsection{Tabela prawdy i tablice Karnaugh:}
+			
+			\begin{table}[h]
+				\begin{minipage}{.5\textwidth}
+					\caption{Tabela Prawdy}
+					\vspace{0.2cm}
+					\centering
+					\begin{tabular}{ccc|c|c}
+						A&B&C&D\textsubscript{i}&C\textsubscript{i+1}\\\hline
+						0&0&0&0&0\\
+						0&0&1&1&1\\
+						0&1&0&1&1\\
+						0&1&1&0&1\\\hline
+						1&0&0&1&0\\
+						1&0&1&0&0\\
+						1&1&0&0&0\\
+						1&1&1&1&1\\
+					\end{tabular}
+					\begin{displaymath}
+					D_i = A_i \oplus B_i \oplus C_i
+					\end{displaymath}
+					\begin{displaymath}
+					C_{i+1} = A_i < (B_i + C_i)
+					\end{displaymath}
+				\end{minipage}%
+				\begin{minipage}{.5\textwidth}
+					\caption{Tablica Karnaugh dla D\textsubscript{i}}
+					\vspace{0.2cm}
+					\centering
+					\begin{tabular}{c|c|c|c|c}
+						\backslashbox{C}{AB}&00&01&11&10\\\hline
+						0&0&1&0&1\\\hline
+						1&1&0&1&0\\
+					\end{tabular}
+					\vspace{0.4cm}
+					\caption{Tablica Karnaugh dla C\textsubscript{i+1}}
+					\vspace{0.2cm}
+					\centering
+					\begin{tabular}{c|c|c|c|c}
+						\backslashbox{C}{AB}&00&01&11&10\\\hline
+						0&0&1&0&0\\\hline
+						1&1&1&1&0\\
+					\end{tabular} 
+				\end{minipage} 
+			\end{table}
+				
+		\subsection{Minimalizacje:}
+			
+			\begin{displaymath}
+				D_i = \bar{a}\bar{b}c + \bar{a}b\bar{c} + abc + a\bar{b}\bar{c}
+				= \bar{a}(\bar{b}c+b\bar{c}) + a(bc + \bar{b}\bar{c})
+				= \overline{\overline{\bar{a}(\bar{b}c+b\bar{c})}\cdot\overline{a(bc + \bar{b}\bar{c})}}
+				= \overline{\overline{\bar{a}(\overline{\overline{\bar{b}c}\cdot\overline{b\bar{c}}})}
+					\cdot\overline{a(\overline{\overline{bc} \cdot \overline{\bar{b}\bar{c}}})}}
+			\end{displaymath}
+			\begin{displaymath}
+				C_{i+1} = \bar{a}b+\bar{a}c+bc
+				= \bar{a}b+c(\bar{a}+b)
+				= \overline{\overline{\bar{a}b}\cdot\overline{c(\bar{a}+b)}}
+				= \overline{\overline{\bar{a}b}\cdot\overline{c(\overline{\bar{\bar{a}}\cdot\bar{b}})}}
+				= \overline{\overline{\bar{a}b}\cdot\overline{c(\overline{a\cdot\bar{b}})}}
+			\end{displaymath}
+			
+		
+		\subsection{Użyte wzory:}
+			\begin{equation}
+			\overline{a\cdot b}=\bar{a}+\bar{b}
+			\end{equation}
+			\begin{equation}
+			\overline{a+b}=\bar{a}\cdot\bar{b}
+			\end{equation}
+			
+		\subsection{Schemat układu:}
+
+	\section{Wnioski/podsumowanie}
 	
 	lorem ipsum
 	
