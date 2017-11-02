@@ -12,6 +12,7 @@
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage{placeins}
+\usepackage{float}
 
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
@@ -181,17 +182,72 @@
 		
 		\subsection{Tabela prawdy i tablice Karnaugh:}
 			
-			
+			\begin{table}[H]
+				\caption{Tabela Prawdy}
+				\vspace{0.2cm}
+				\centering
+				\begin{tabular}{ccc|ccc|ccc}
+					\multicolumn{3}{c|}{$t$}&\multicolumn{3}{c|}{$t+1$}&$D_2$&$D_1$&$D_0$\\\hline
+					0&0&0 &1&0&1 &1&0&1\\
+					0&0&1 &0&1&1 &0&1&1\\
+					0&1&0 &0&0&0 &0&0&0\\
+					0&1&1 &0&1&0 &0&1&0\\\hline
+					1&0&0 &-&-&- &-&-&-\\
+					1&0&1 &0&0&1 &0&0&1\\
+					1&1&0 &-&-&- &-&-&-\\
+					1&1&1 &-&-&- &-&-&-\\
+				\end{tabular}
+				\vspace{1cm}
+				
+				\begin{minipage}{.5\textwidth}
+					\caption{Tablica Karnaugh dla $D_2$}
+					\vspace{0.2cm}
+					\centering
+					\begin{tabular}{c|c|c|c|c}
+						\backslashbox{$Q_2$}{$Q_1Q_0$}&00&01&11&10\\\hline
+						0&	1&0&0&-\\\hline
+						1&	-&0&-&0\\
+					\end{tabular}
+					
+					\vspace{0.4cm}
+					
+					\caption{Tablica Karnaugh dla $D_1$}
+					\vspace{0.2cm}
+					\centering
+					\begin{tabular}{c|c|c|c|c}
+						\backslashbox{$Q_2$}{$Q_1Q_0$}&00&01&11&10\\\hline
+						0&	0&1&1&0\\\hline
+						1&	-&0&-&-\\
+					\end{tabular}
+				\end{minipage}%
+				\begin{minipage}{.5\textwidth}
+					\caption{Tablica Karnaugh dla $D_0$}
+					\vspace{0.2cm}
+					\centering
+					\begin{tabular}{c|c|c|c|c}
+						\backslashbox{$Q_2$}{$Q_1Q_0$}&00&01&11&10\\\hline
+						0&	1&1&0&0\\\hline
+						1&	-&1&-&-\\
+					\end{tabular} 
+					
+				\end{minipage}
+			\end{table}
 	
 		\subsection{Minimalizacje:}
 			
-		
+			\begin{displaymath}
+			D_2 = \bar{Q_1}\bar{Q_0} = \overline{Q_1 + Q_0}
+			\end{displaymath}
+			\begin{displaymath}
+			D_1 = \bar{Q_2}Q_0 = \overline{Q_2 + \overline{Q_0}}
+			\end{displaymath}
+			\begin{displaymath}
+			D_0 = \bar{Q_1}
+			\end{displaymath}
+			
 		\subsection{Użyte wzory:}
 			\begin{equation}
 			\overline{a\cdot b}=\bar{a}+\bar{b}
-			\end{equation}
-			\begin{equation}
-			\overline{a+b}=\bar{a}\cdot\bar{b}
 			\end{equation}
 			
 		\subsection{Schemat układu:}
