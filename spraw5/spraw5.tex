@@ -29,7 +29,7 @@
 		Prowadzący: Mgr inż. Antoni Sterna (E02-38m, wtorek 17:05) \\
 	
 		\vspace{1.1cm}
-		{\Large sprawozdanie 4 - 2017.11.07\par}
+		{\Large sprawozdanie 5 - 2017.11.07\par}
 		\vfill
 		
 		{\large\bfseries Jakub Dorda 235013\par}
@@ -45,11 +45,99 @@
 
 	\section{Wprowadzenie/cel ćwiczeń}
 	
-		Celem ćwiczeń było poznanie podstaw projektowania automatów w wariantach Moore'a i Mealy.
+		Celem ćwiczeń było poznanie podstaw projektowania automatów w wariantach Moore'a i Mealy. Należało zaprojektować grafy w obu wariantach dla subtraktora szeregowego oraz komparatora szeregowego. Dodatkowo przeprowadzona została synteza strukturalna komparatora w wariancie Mealy w celu uruchomienia na zestawie UNILOG.
 		
 		
 	\section{Subtraktor szeregowy}
 	
+		\subsection{Automat Moore'a}
+		
+			\begin{itemize}
+				\item Wejścia: \(Z = \{Z_0, Z_1, Z_2, Z_3\}\)\\
+				
+				\begin{minipage}{{.5\textwidth}}
+					\centering
+					\begin{tabular}{r|cc}
+						&	\(z_1\)	&	\(z_0\)\\\hline
+						\(Z_0\)	&	0	&	0	\\
+						\(Z_1\)	&	0	&	1	\\
+						\(Z_2\)	&	1	&	0	\\
+						\(Z_3\)	&	1	&	1	\\
+					\end{tabular}
+				\end{minipage}%
+				\begin{minipage}{{.5\textwidth}}
+					\(z_1\) - cyfra odjemnej\\
+					\(z_0\) - cyfra odjemnika
+				\end{minipage}
+			
+				\item Stany wewnętrzne: \(Q =\{Q_0, Q_1, Q_2, Q_3\}\)\\
+					
+					\begin{minipage}{{.5\textwidth}}
+						\centering
+						\begin{tabular}{r|cc}
+							&	\(q_1\)	&	\(q_0\)\\\hline
+							\(Q_0\)	&	0	&	0	\\
+							\(Q_1\)	&	0	&	1	\\
+							\(Q_2\)	&	1	&	0	\\
+							\(Q_3\)	&	1	&	1	\\
+						\end{tabular}
+					\end{minipage}%
+					\begin{minipage}{{.5\textwidth}}	
+						\(Q_0\) - stan bez pożyczki, wynik = 0\\
+						\(Q_1\) - stan z pożyczką, wynik = 0\\
+						\(Q_2\) - stan bez pożyczki, wynik = 1\\
+						\(Q_3\) - stan z pożyczką, wynik = 1
+					\end{minipage}
+				
+				\item Funkcja wyjść: \(Y=\{Y_0, Y_1\}\)\\
+				
+					\begin{minipage}{{.5\textwidth}}
+						\centering
+						\begin{tabular}{r|c}
+							\(Q\)	&	\(Y\)	\\\hline
+							\(Q_0\)	&	\(Y_0\)	\\
+							\(Q_1\)	&	\(Y_0\)	\\
+							\(Q_2\)	&	\(Y_1\)	\\
+							\(Q_3\)	&	\(Y_1\)	\\
+						\end{tabular}
+					\end{minipage}%
+					\begin{minipage}{{.5\textwidth}}	
+						\(Y_0\) - wynik = 0\\
+						\(Y_1\) - wynik = 1
+					\end{minipage}
+			\end{itemize}
+		
+		\subsection{Automat Mealy}
+			\begin{itemize}
+				\item Wejścia: \(Z = \{Z_0, Z_1, Z_2, Z_3\}\)\\
+				
+				\begin{minipage}{{.5\textwidth}}
+					\centering
+					\begin{tabular}{r|cc}
+						&	\(z_1\)	&	\(z_0\)\\\hline
+						\(Z_0\)	&	0	&	0	\\
+						\(Z_1\)	&	0	&	1	\\
+						\(Z_2\)	&	1	&	0	\\
+						\(Z_3\)	&	1	&	1	\\
+					\end{tabular}
+				\end{minipage}%
+				\begin{minipage}{{.5\textwidth}}	
+					
+					\(z_1\) - cyfra odjemnej\\
+					\(z_0\) - cyfra odjemnika
+				\end{minipage}
+				
+				\item Stany wewnętrzne: \(Q =\{Q_0, Q_1\}\)
+					
+					\(Q_0\) - stan bez pożyczki\\
+					\(Q_1\) - stan z pożyczką
+					
+				\item Funkcja wyjść: \(Y=\{Y_0, Y_1\}\)
+					
+					\(Y_0\) - wynik = 0\\
+					\(Y_1\) - wynik = 1
+			\end{itemize}
+		
 		\subsection{Grafy:}
 	
 			\begin{center}
@@ -68,6 +156,83 @@
 		
 	\section{Komparator szeregowy}
 	
+		\subsection{Automat Moore'a}
+		
+		\begin{itemize}
+			\item Wejścia: \(Z = \{Z_0, Z_1, Z_2, Z_3\}\)\\
+			
+			\begin{minipage}{{.5\textwidth}}
+				\centering
+				\begin{tabular}{r|cc}
+					&	\(z_1\)	&	\(z_0\)\\\hline
+					\(Z_0\)	&	0	&	0	\\
+					\(Z_1\)	&	0	&	1	\\
+					\(Z_2\)	&	1	&	0	\\
+					\(Z_3\)	&	1	&	1	\\
+				\end{tabular}
+			\end{minipage}%
+			\begin{minipage}{{.5\textwidth}}
+				\(z_1\) - cyfra pierwszej liczby\\
+				\(z_0\) - cyfra drugiej liczby
+			\end{minipage}
+			
+			\item Stany wewnętrzne: \(Q =\{Q_1, Q_2, Q_3\}\)\\
+			
+			\begin{minipage}{{.5\textwidth}}
+				\centering
+				\begin{tabular}{r|cc}
+					&	\(q_1\)	&	\(q_0\)\\\hline
+					\(Q_1\)	&	0	&	1	\\
+					\(Q_2\)	&	1	&	0	\\
+					\(Q_3\)	&	1	&	1	\\
+				\end{tabular}
+			\end{minipage}%
+			\begin{minipage}{{.5\textwidth}}	
+				\(Q_1\) - druga liczba większa\\
+				\(Q_2\) - pierwsza liczba większa\\
+				\(Q_3\) - stan wejściowy, obie liczby równe\\
+			\end{minipage}
+			
+			\item Funkcja wyjść: \(Y=\{Y_1, Y_2, Y_3\}\) (kodowanie \(y_1,y_0\) takie samo jak dla stanów wew.)\\
+			
+			\begin{minipage}{{.5\textwidth}}
+				\centering
+				\begin{tabular}{r|c}
+					\(Q\)	&	\(Y\)	\\\hline
+					\(Q_1\)	&	\(Y_1\)	\\
+					\(Q_2\)	&	\(Y_2\)	\\
+					\(Q_3\)	&	\(Y_3\)	\\
+				\end{tabular}
+			\end{minipage}%
+			\begin{minipage}{{.5\textwidth}}	
+				\(Y_1\) - druga liczba większa\\
+				\(Y_2\) - pierwsza liczba większa\\
+				\(Y_3\) - obie liczby równe\\
+			\end{minipage}
+		\end{itemize}
+		
+		\subsection{Automat Mealy}
+		\begin{itemize}
+			\item Wejścia oraz stany wewnętrzne takie same jak dla automatu Moore'a
+			
+			\item Wyjścia: \(Y=\{Y_1, Y_2, Y_3\}\)\\
+			
+			\begin{minipage}{{.5\textwidth}}
+				\centering
+				\begin{tabular}{r|cc}
+					&	\(y_1\)	&	\(y_0\)\\\hline
+					\(Y_1\)	&	0	&	1	\\
+					\(Y_2\)	&	1	&	0	\\
+					\(Y_3\)	&	1	&	1	\\
+				\end{tabular}
+			\end{minipage}%
+			\begin{minipage}{{.5\textwidth}}	
+				\(Y_1\) - druga liczba większa\\
+				\(Y_2\) - pierwsza liczba większa\\
+				\(Y_3\) - obie liczby równe\\
+			\end{minipage}
+		\end{itemize}
+		
 		\subsection{Grafy:}
 		
 			\vspace{1.5cm}
@@ -82,7 +247,7 @@
 				Graf 4 - komparator szeregowy w wersji Mealy
 			\end{center}
 	
-		\subsection{Tabela prawdy i tablice Karnaugh:}
+		\subsection{Tabela prawdy i tablice Karnaugh dla automatu Mealy:}
 			\begin{table}[H]
 			\begin{minipage}{.5\textwidth}
 				\caption{Tabela Prawdy - funkcja przejść}
@@ -209,6 +374,6 @@
 
 	\section{Wnioski/podsumowanie}
 	
-			W celu sprawdzenia poprawności działania należało przeprowadzić testy dla wszystkich możliwych kombinacji wejść. Pierwsze ćwiczenie zostało wykonane poprawnie, natomiast drugie ćwiczenie zostało zaprojektowane bez pomocy tabeli prawdy, przez co uruchomienie układu się nie powiodło. Poprawny model układu został umieszczony w sprawozdaniu.
+			W celu sprawdzenia poprawności działania komparatora należało przeprowadzić testy dla wszystkich możliwych kombinacji wejść oraz stanów. Za stan wejściowy przyjęto \(q_1=1, q_0 = 1\), więc przycisk reset należało podłączyć do wejść set przerzutników.
 	
 \end{document}
