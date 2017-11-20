@@ -22,10 +22,10 @@
 		{\huge\bfseries Logika układów cyfrowych lab.\par}
 		
 		\vspace{0.5cm}
-		Prowadzący: Antoni Sterna (E02-38m, wtorek 17:05) \\
+		Prowadzący: Mgr inż. Antoni Sterna (E02-38m, wtorek 17:05) \\
 	
 		\vspace{1.1cm}
-		{\Large sprawozdanie 2 - ?\par}
+		{\Large sprawozdanie 2 - 2017.10.17\par}
 		\vfill
 		
 		{\large\bfseries Jakub Dorda 235013\par}
@@ -40,7 +40,7 @@
 	
 	\section{Wprowadzenie/cel ćwiczeń}
 	
-		lorem ipsum
+		Celem pierwszego zadania było stworzenie transkodera naturalnego kodu binarnego 3 bitowego wykonującego dla każdego przypadku operację dodawania +3. Kolejnym zadaniem było wykonanie subtraktora pełnego 1 bitowego. Trudność w drugim zadaniu polegała na ograniczeniu implementacji tylko do dwuwejściowych bramek NAND. Obydwa układy zostały sprawdzone w symulatorze oraz przez wykonanie ich na zestawie prototypowym w czasie zajęć w laboratorium. 
 	
 	\section{Transkoder naturalnego kodu binarnego na kod +3}
 		
@@ -133,8 +133,13 @@
 			
 		\subsection{Schemat układu:}
 		
+		\vspace{0.5cm}
+		\begin{center}
+			\makebox[\textwidth]{\includegraphics[width=\paperwidth - 80mm]{schem/circuit.png}}
+			Schemat 1. Układ transkodera na bramkach NAND
+		\end{center}
 		
-	\section{Subtraktor pełny 1 bitowy}
+	\section{Subtraktor pełny 1 bitowy (na NAND 2 wejściowych)}
 		
 		\subsection{Tabela prawdy i tablice Karnaugh:}
 			
@@ -181,6 +186,10 @@
 					\end{tabular} 
 				\end{minipage} 
 			\end{table}
+			
+			\noindent
+			$A_i$ - odjemna, $B_i$ - odjemnik, $C_i$ - pożyczka od poprzedniego bitu\\
+			$D_i$ - bit różnicy/wynik, $C_{i+1}$ - bit pożyczki/przeniesienie
 				
 		\subsection{Minimalizacje:}
 			
@@ -198,7 +207,6 @@
 				= \overline{\overline{\bar{a}b}\cdot\overline{c(\overline{\bar{\bar{a}}\cdot\bar{b}})}}
 				= \overline{\overline{\bar{a}b}\cdot\overline{c(\overline{a\cdot\bar{b}})}}
 			\end{displaymath}
-			
 		
 		\subsection{Użyte wzory:}
 			\begin{equation}
@@ -209,9 +217,15 @@
 			\end{equation}
 			
 		\subsection{Schemat układu:}
+		
+		\vspace{0.5cm}
+		\begin{center}
+			\makebox[\textwidth]{\includegraphics[width=\paperwidth - 40mm]{schem/circuit2.png}}
+			Schemat 1. Układ subtraktora na dwuwejściowych bramkach NAND
+		\end{center}
 
 	\section{Wnioski/podsumowanie}
 	
-	lorem ipsum
+	W celu sprawdzenia poprawności działania należało przeprowadzić testy dla wszystkich możliwych kombinacji wejść w tym przypadku dla obu układów było to $2^3 = 8$. Obydwa układy działały poprawnie, aczkolwiek w przypadku pierwszego zadania możliwa była dalsza minimalizacja oraz użycie innych bramek w celu uproszczenia finalnego układu. 
 	
 \end{document}
