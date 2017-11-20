@@ -55,19 +55,127 @@
 		
 	
 		\subsection{Tabela prawdy i tablice Karnaugh:}
+			\begin{table}[H]
+			\begin{minipage}{.5\textwidth}
+				\caption{Tabela Prawdy - funkcja przejść}
+				\vspace{0.2cm}
+				\centering
+				\begin{tabular}{cccc|cc}
+					\multicolumn{4}{c|}{\(t\)}	&	\multicolumn{2}{c}{\(t+1\)} \\
+					\(q_1\)&\(q_0\)&\(z_1\)&\(z_0\)&\(q_1\)&\(q_0\)\\\hline
+					0	&	0	&	0	&	0	&	-	&	-	\\
+					0	&	0	&	0	&	1	&	-	&	-	\\
+					0	&	0	&	1	&	0	&	-	&	-	\\
+					0	&	0	&	1	&	1	&	-	&	-	\\\hline
+					0	&	1	&	0	&	0	&	0	&	1	\\
+					0	&	1	&	0	&	1	&	0	&	1	\\
+					0	&	1	&	1	&	0	&	1	&	0	\\
+					0	&	1	&	1	&	1	&	0	&	1	\\\hline
+					1	&	0	&	0	&	0	&	1	&	0	\\
+					1	&	0	&	0	&	1	&	0	&	1	\\
+					1	&	0	&	1	&	0	&	1	&	0	\\
+					1	&	0	&	1	&	1	&	1	&	0	\\\hline
+					1	&	1	&	0	&	0	&	1	&	1	\\
+					1	&	1	&	0	&	1	&	0	&	1	\\
+					1	&	1	&	1	&	0	&	1	&	0	\\
+					1	&	1	&	1	&	1	&	1	&	1	\\
+				\end{tabular}
+			\end{minipage}%
+			\begin{minipage}{.5\textwidth}
+				\caption{Tablica Karnaugh dla $q_1$}
+				\vspace{0.2cm}
+				\centering
+				\begin{tabular}{c|c|c|c|c}
+					\backslashbox{$z_1z_0$}{$q_1q_0$}&00&01&11&10\\\hline
+					00	&	-	&	0	&	1	&	1	\\\hline
+					01	&	-	&	0	&	0	&	0	\\\hline
+					11	&	-	&	0	&	1	&	1	\\\hline
+					10	&	-	&	1	&	1	&	1	
+				\end{tabular}
+				\vspace{1cm}
+				
+				\caption{Tablica Karnaugh dla $q_0$}
+				\vspace{0.2cm}
+				\centering
+				\begin{tabular}{c|c|c|c|c}
+					\backslashbox{$z_1z_0$}{$q_1q_0$}&00&01&11&10\\\hline
+					00	&	-	&	1	&	1	&	0	\\\hline
+					01	&	-	&	1	&	1	&	1	\\\hline
+					11	&	-	&	1	&	1	&	0	\\\hline
+					10	&	-	&	0	&	0	&	0	
+				\end{tabular}
+			\end{minipage}
+			\end{table}
 		
+			\begin{table}[H]
+			\begin{minipage}{.5\textwidth}
+				\caption{Tabela Prawdy - funkcja wyjść}
+				\vspace{0.2cm}
+				\centering
+				\begin{tabular}{cccc|cc}
+					\(q_1\)&\(q_0\)&\(z_1\)&\(z_0\)&\(y_1\)&\(y_0\)\\\hline
+					0	&	0	&	0	&	0	&	-	&	-	\\
+					0	&	0	&	0	&	1	&	-	&	-	\\
+					0	&	0	&	1	&	0	&	-	&	-	\\
+					0	&	0	&	1	&	1	&	-	&	-	\\\hline
+					0	&	1	&	0	&	0	&	0	&	1	\\
+					0	&	1	&	0	&	1	&	0	&	1	\\
+					0	&	1	&	1	&	0	&	1	&	0	\\
+					0	&	1	&	1	&	1	&	0	&	1	\\\hline
+					1	&	0	&	0	&	0	&	1	&	0	\\
+					1	&	0	&	0	&	1	&	0	&	1	\\
+					1	&	0	&	1	&	0	&	1	&	0	\\
+					1	&	0	&	1	&	1	&	1	&	0	\\\hline
+					1	&	1	&	0	&	0	&	1	&	1	\\
+					1	&	1	&	0	&	1	&	0	&	1	\\
+					1	&	1	&	1	&	0	&	1	&	0	\\
+					1	&	1	&	1	&	1	&	1	&	1	\\
+				\end{tabular}
+			\end{minipage}%
+			\begin{minipage}{.5\textwidth}
+				\caption{Tablica Karnaugh dla $y_1$}
+				\vspace{0.2cm}
+				\centering
+				\begin{tabular}{c|c|c|c|c}
+					\backslashbox{$z_1z_0$}{$q_1q_0$}&00&01&11&10\\\hline
+					00	&	-	&	0	&	1	&	1	\\\hline
+					01	&	-	&	0	&	0	&	0	\\\hline
+					11	&	-	&	0	&	1	&	1	\\\hline
+					10	&	-	&	1	&	1	&	1	
+				\end{tabular}
+				\vspace{1cm}
+				
+				\caption{Tablica Karnaugh dla $y_0$}
+				\vspace{0.2cm}
+				\centering
+				\begin{tabular}{c|c|c|c|c}
+					\backslashbox{$z_1z_0$}{$q_1q_0$}&00&01&11&10\\\hline
+					00	&	-	&	1	&	1	&	0	\\\hline
+					01	&	-	&	1	&	1	&	1	\\\hline
+					11	&	-	&	1	&	1	&	0	\\\hline
+					10	&	-	&	0	&	0	&	0	
+				\end{tabular}
+			\end{minipage}
+			\end{table}
 		
 		\subsection{Minimalizacje:}
-		
+			\begin{displaymath}
+			q_1(t+1) = y_1 = z_1\bar{z_0} + q_1z_1 + q_1\bar{z_0}= \overline{\overline{z_1\bar{z_0}} \cdot \overline{q_1z_1} \cdot \overline{q_1\bar{z_0}}}
+			\end{displaymath}
+			\begin{displaymath}
+			q_0(t+1) = y_0 = \bar{z_1}z_0 + q_0\bar{z_1} + q_0z_0= \overline{\overline{\bar{z_1}z_0} \cdot \overline{q_0\bar{z_1}} \cdot \overline{q_0z_0}}
+			\end{displaymath}
 		
 		\subsection{Użyte wzory:}
-		
+			\begin{equation}
+			\overline{a+b}=\bar{a}\cdot\bar{b}
+			\end{equation}
 		
 		\subsection{Schemat układu:}
 		
 		\vspace{1.5cm}
 		\begin{center}
-			\makebox[\textwidth]{\includegraphics[width=\paperwidth - 30mm]{schem/circuit.png}}
+			\makebox[\textwidth]{\includegraphics[width=\paperwidth - 30mm]{schem/circuitv2.png}}
 			Schemat 1
 		\end{center}
 
