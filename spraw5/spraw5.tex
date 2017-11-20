@@ -45,7 +45,7 @@
 
 	\section{Wprowadzenie/cel ćwiczeń}
 	
-		Celem ćwiczeń było poznanie podstaw projektowania automatów w wariantach Moore'a i Mealy. Należało zaprojektować grafy w obu wariantach dla subtraktora szeregowego oraz komparatora szeregowego. Dodatkowo przeprowadzona została synteza strukturalna komparatora w wariancie Mealy w celu uruchomienia na zestawie UNILOG.
+		Celem ćwiczeń było poznanie podstaw projektowania automatów w wariantach Moore'a i Mealy. Należało zaprojektować grafy w obu wariantach dla subtraktora szeregowego oraz komparatora szeregowego. Dodatkowo przeprowadzona została synteza strukturalna komparatora w wariancie Mealy w celu uruchomienia go na zestawie UNILOG.
 		
 		
 	\section{Subtraktor szeregowy}
@@ -106,7 +106,21 @@
 						\(Y_1\) - wynik = 1
 					\end{minipage}
 			\end{itemize}
-		
+			
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=.5\textwidth]{schem/diag1.png}
+				\\
+				\vspace{.1cm}
+				Graf 1 - subtraktor szeregowy w wersji Moore'a
+			\end{figure}
+			
+			%\begin{center}
+			%	\makebox[\textwidth]{\includegraphics[width=\paperwidth - 86mm]{schem/diag1.png}}
+			%	Graf 1 - subtraktor szeregowy w wersji Moore'a
+			%\end{center}
+			
+			
 		\subsection{Automat Mealy}
 			\begin{itemize}
 				\item Wejścia: \(Z = \{Z_0, Z_1, Z_2, Z_3\}\)\\
@@ -137,22 +151,19 @@
 					\(Y_0\) - wynik = 0\\
 					\(Y_1\) - wynik = 1
 			\end{itemize}
-		
-		\subsection{Grafy:}
-	
-			\begin{center}
-				\makebox[\textwidth]{\includegraphics[width=\paperwidth - 86mm]{schem/diag1.png}}
-				Graf 1 - subtraktor szeregowy w wersji Moore'a
-			\end{center}
 			
-			
-			\begin{center}
-				\makebox[\textwidth]{\includegraphics[width=\paperwidth - 145mm]{schem/diag2.png}}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[width=.25\textwidth]{schem/diag2.png}
+				\\
+				\vspace{.1cm}
 				Graf 2 - subtraktor szeregowy w wersji Mealy
-			\end{center}
+			\end{figure}
 		
-		\FloatBarrier
-		\restoregeometry
+			%\begin{center}
+			%	\makebox[\textwidth]{\includegraphics[width=\paperwidth - 145mm]{schem/diag2.png}}
+			%	Graf 2 - subtraktor szeregowy w wersji Mealy
+			%\end{center}
 		
 	\section{Komparator szeregowy}
 	
@@ -176,6 +187,7 @@
 				\(z_0\) - cyfra drugiej liczby
 			\end{minipage}
 			
+			\newpage
 			\item Stany wewnętrzne: \(Q =\{Q_1, Q_2, Q_3\}\)\\
 			
 			\begin{minipage}{{.5\textwidth}}
@@ -209,7 +221,20 @@
 				\(Y_2\) - pierwsza liczba większa\\
 				\(Y_3\) - obie liczby równe\\
 			\end{minipage}
-		\end{itemize}
+		\end{itemize}\vspace{1.5cm}
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.75\textwidth]{schem/diag3.png}
+			\\
+			\vspace{.1cm}
+				Graf 3 - komparator szeregowy w wersji Moore'a
+		\end{figure}
+	
+		%\begin{center}
+		%	\makebox[\textwidth]{\includegraphics[width=\paperwidth - 20mm]{schem/diag3.png}}
+		%	Graf 3 - komparator szeregowy w wersji Moore'a
+		%\end{center}	
 		
 		\subsection{Automat Mealy}
 		\begin{itemize}
@@ -233,19 +258,18 @@
 			\end{minipage}
 		\end{itemize}
 		
-		\subsection{Grafy:}
-		
-			\vspace{1.5cm}
-			\begin{center}
-				\makebox[\textwidth]{\includegraphics[width=\paperwidth - 20mm]{schem/diag3.png}}
-				Graf 3 - komparator szeregowy w wersji Moore'a
-			\end{center}
-			
-			\vspace{1.5cm}
-			\begin{center}
-				\makebox[\textwidth]{\includegraphics[width=\paperwidth - 20mm]{schem/diag4.png}}
-				Graf 4 - komparator szeregowy w wersji Mealy
-			\end{center}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=.75\textwidth]{schem/diag4.png}
+			\\
+			\vspace{.1cm}
+			Graf 4 - komparator szeregowy w wersji Mealy
+		\end{figure}
+	
+		%\begin{center}
+		%	\makebox[\textwidth]{\includegraphics[width=\paperwidth - 20mm]{schem/diag4.png}}
+		%	Graf 4 - komparator szeregowy w wersji Mealy
+		%\end{center}	
 	
 		\subsection{Tabela prawdy i tablice Karnaugh dla automatu Mealy:}
 			\begin{table}[H]
@@ -359,6 +383,7 @@
 			q_0(t+1) = y_0 = \bar{z_1}z_0 + q_0\bar{z_1} + q_0z_0= \overline{\overline{\bar{z_1}z_0} \cdot \overline{q_0\bar{z_1}} \cdot \overline{q_0z_0}}
 			\end{displaymath}
 		
+		\newpage
 		\subsection{Użyte wzory:}
 			\begin{equation}
 			\overline{a+b}=\bar{a}\cdot\bar{b}
