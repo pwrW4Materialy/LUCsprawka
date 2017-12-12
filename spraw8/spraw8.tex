@@ -46,7 +46,7 @@
 	\section{Wprowadzenie/cel ćwiczeń}
 	
 		Celem ćwiczenia było zapoznanie się z działaniem automatów niedeterministycznych.
-		W tym celu należało przeanalizować schemat w instrukcji odpowiadający automatowi NFA dla wyrażenia 0*1*2.
+		W tym celu należało przeanalizować schemat w instrukcji odpowiadający automatowi NFA dla wyrażenia 0*1*2*.
 		Następnym zadaniem było przygotowanie modyfikacji automatu tak, aby odpowiadał on wyrażeniu 0*(1+2)*.
 		
 	\section{Opis działania:}
@@ -58,8 +58,8 @@
 		\subsection{RESET:}
 			Wejście RESET powoduje wyzerowanie wszystkich przerzutników.
 			Poszczególne przerzutniki odpowiadające konkretnym stanom automatu mogą zostać również wyzerowane w wyniku działania automatu.
-			Przerzutnik pierwszy może zostać wyzerowany w wyniku podania na wejście automatu cyfry 1 lub 2, oraz w wyniku wciśnięcia przycisku READ.
-			Podobnie przerzutnik drugi wyzerowany zostanie przy aktywowaniu przerzutnika trzeciego, a więc podaniu cyfry 2 oraz wciśnięciu READ.
+			Przerzutnik odpowiadający stanowi początkowemu może zostać wyzerowany w wyniku podania na wejście automatu cyfry 1 lub 2, oraz w wyniku wciśnięcia przycisku READ.
+			Podobnie przerzutnik odpowiadający stanowi Q1 wyzerowany zostanie przy aktywowaniu przerzutnika trzeciego, a więc podaniu cyfry 2 oraz wciśnięciu READ.
 			Wszystkie stany wyzerowane zostaną również, gdy podana zostanie niedozwolona cyfra - np. 1 po 2, lub 0 po 1 lub 2.
 
 		\subsection{START:}
@@ -74,18 +74,31 @@
 		\subsection{Wejścia SET przerzutników}
 			Na wejścia SET przerzutników podłączony jest zestaw bramek złożony z 2 bramek AND oraz jednej NOR.
 			Mają one za zadanie sprawdzać poszczególne warunki, dla których uaktywni się poszczególny stan.
-			Np. drugi stan końcowy uaktywni się w następujących przypadkach: jeśli wprowadzona została cyfra 2 i jednocześnie aktywny był którykolwiek ze stanów,
+			Np. stan końcowy uaktywni się w następujących przypadkach: jeśli wprowadzona została cyfra 2 i jednocześnie aktywny był którykolwiek ze stanów,
 			oraz jeśli aktywowane zostało wejście READ i którykolwiek ze stanów był aktywny.
 
-		\vspace{1.5cm}
-		\begin{center}
-			%\makebox[\textwidth]{\includegraphics[width=\paperwidth - 40mm]{schem/circuit1.png}}
-			Schemat 1 - analizator ciągu par w wersji Mealy
-		\end{center}
-
+	\section{Modyfikacja na automat 0*(1+2)*}
+		Aby uzyskać odpowiednie zachowanie ze schematu został usunięty jeden przerzutnik (potrzebne są tylko 2).
+		Wejścia 1 oraz 2 zostały podłączone do bramki NOR tak, aby oba uaktywniały ten sam stan przerzutników.
+		
+		
+	\section{Schematy układów}
+	
+	\begin{center}
+		\makebox[\textwidth]{\includegraphics[width=\paperwidth - 60mm]{schem/circ1.png}}
+		Schemat 1 - Układ bazowy z polecenia
+	\end{center}
+	
+	\vspace{0.5cm}
+	\begin{center}
+		\makebox[\textwidth]{\includegraphics[width=\paperwidth - 60mm]{schem/circ2.png}}
+		Schemat 2 - Układ zmodyfikowany na potrzeby ćwiczenia
+	\end{center}
+	
 	\section{Wnioski/podsumowanie}
 	
-			W celu sprawdzenia poprawności działania komparatora należało przeprowadzić testy dla wszystkich możliwych kombinacji wejść oraz stanów. W czasie testowania układu okazało się, że typ zbocza sygnału reset może mieć
-			wpływ na poprawne zachowanie automatów ze względu na budowę wewnętrzną przerzutników. 
-	
+	W czasie trwania laboratorium na początku złożono układ podstawowy pochodzący z polecenia ćwiczenia.
+	Po sprawdzeniu poprawności działania oraz weryfikacji zrozumienia budowy automatu złożono właściwy
+	układ, który został przygotowany według polecenia. W celu sprawdzenia działania automatu sprawdzono wszystkie możliwe stany,
+	nie stwierdzono błędnych zachowań.
 \end{document}
